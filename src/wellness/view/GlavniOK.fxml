@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="434.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wellness.controller.GlavniOKController">
+   <children>
+      <TabPane layoutY="1.0" prefHeight="433.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Početna">
+               <content>
+                  <AnchorPane prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="pocetnaOk" layoutX="8.0" layoutY="7.0" prefHeight="315.0" prefWidth="583.0">
+                          <columns>
+                            <TableColumn fx:id="kategorija_pocetnaOk" prefWidth="135.0" text="Kategorija" />
+                              <TableColumn fx:id="vrstaUsluge_pocetnaOk" prefWidth="130.0" text="Vrsta usluge" />
+                              <TableColumn fx:id="cijena_pocetnaOk" prefWidth="105.0" text="Cijena" />
+                              <TableColumn fx:id="datum_pocetnaOk" prefWidth="105.0" text="Datum" />
+                              <TableColumn fx:id="vrijeme_pocetnaOk" prefWidth="106.0" text="Vrijeme" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="523.0" layoutY="331.0" mnemonicParsing="false" onAction="#rezervirajTermin" text="Rezerviraj" />
+                     </children>
+                  </AnchorPane>
+               </content>
+          </Tab>
+            <Tab text="Moje rezervacije">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="559.0">
+                     <children>
+                        <TableView fx:id="mojeRezervacijeOk" layoutX="8.0" layoutY="7.0" prefHeight="315.0" prefWidth="583.0">
+                          <columns>
+                            <TableColumn fx:id="kategorija_mojerezervacije" prefWidth="135.0" text="Kategorija" />
+                            <TableColumn fx:id="vrsta_usluge_mojerezevacije" prefWidth="130.0" text="Vrsta usluge" />
+                              <TableColumn fx:id="cijena_mojerezervacije" prefWidth="105.0" text="Cijena" />
+                              <TableColumn fx:id="datum_mojerezervacije" prefWidth="105.0" text="Datum" />
+                              <TableColumn fx:id="vrijeme_mojerezervacije" prefWidth="106.0" text="Vrijeme" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="474.0" layoutY="332.0" mnemonicParsing="false" onAction="#otkaziRezervaciju" prefHeight="25.0" prefWidth="117.0" text="Otkaži rezervaciju" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Button fx:id="odjavaButtonOk" layoutX="525.0" layoutY="395.0" mnemonicParsing="false" onAction="#odjava" text="Odjavi se" />
+   </children>
+</AnchorPane>

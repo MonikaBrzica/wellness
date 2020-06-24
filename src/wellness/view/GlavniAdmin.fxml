@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="434.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wellness.controller.GlavniController">
+   <children>
+      <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Pocetna">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="365.0" prefWidth="600.0">
+                     <children>
+                        <TableView fx:id="pocetna" layoutX="160.0" layoutY="7.0" prefHeight="314.0" prefWidth="431.0">
+                          <columns>
+                            <TableColumn fx:id="kategorija_pocetna" prefWidth="84.0" text="Kategorija" />
+                            <TableColumn fx:id="vrsta_usluge_pocetna" prefWidth="99.0" text="Vrsta usluge" />
+                              <TableColumn fx:id="cijena_pocetna" prefWidth="64.0" text="Cijena" />
+                              <TableColumn fx:id="datum_pocetna" prefWidth="99.0" text="Datum" />
+                              <TableColumn fx:id="vrijeme_pocetna" prefWidth="83.0" text="Vrijeme" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="22.0" layoutY="295.0" mnemonicParsing="false" onAction="#dodajTermin" prefWidth="63.0" text="Dodaj" />
+                        <Button layoutX="91.0" layoutY="295.0" mnemonicParsing="false" onAction="#urediTermin" prefWidth="63.0" text="Uredi" />
+                        <Button layoutX="22.0" layoutY="332.0" mnemonicParsing="false" onAction="#obrisiTermin" prefWidth="63.0" text="Obriši" />
+                        <ChoiceBox fx:id="kategorija_choicebox_pocetna" layoutX="22.0" layoutY="55.0" prefHeight="25.0" prefWidth="132.0" />
+                        <TextField fx:id="vrsta_usluge" layoutX="22.0" layoutY="95.0" prefHeight="25.0" prefWidth="132.0" promptText="Vrsta usluge" />
+                        <TextField fx:id="cijena" layoutX="22.0" layoutY="135.0" prefHeight="25.0" prefWidth="132.0" promptText="Cijena" />
+                        <DatePicker fx:id="datum" layoutX="22.0" layoutY="175.0" prefWidth="132.0" />
+                        <Label layoutX="22.0" layoutY="10.0" text="Dodaj / Uredi:">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="vrijeme" layoutX="22.0" layoutY="215.0" prefWidth="132.0" promptText="Vrijeme" />
+                        <TextField fx:id="br_termina" layoutX="22.0" layoutY="255.0" prefHeight="25.0" prefWidth="132.0" promptText="Broj termina" />
+                        <Button layoutX="515.0" layoutY="332.0" mnemonicParsing="false" onAction="#rezervirajTermin" prefHeight="25.0" prefWidth="74.0" text="Rezerviraj" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Rezervacije">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="rezervacije" layoutX="8.0" layoutY="7.0" prefHeight="315.0" prefWidth="583.0">
+                          <columns>
+                            <TableColumn fx:id="korisnik_rezervacije" prefWidth="165.0" text="Korisnik" />
+                              <TableColumn fx:id="kategorija_rezervacije" minWidth="8.0" prefWidth="110.0" text="Kategorija" />
+                              <TableColumn fx:id="vrsta_usluge_rezervacije" prefWidth="115.0" text="Vrsta usluge" />
+                              <TableColumn fx:id="datum_rezervacije" prefWidth="90.0" text="Datum" />
+                              <TableColumn fx:id="vrijeme_rezervacije" prefWidth="102.0" text="Vrijeme" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="525.0" layoutY="330.0" mnemonicParsing="false" onAction="#zavrsiRezervaciju" text="Završeno" />
+                        <Button layoutX="401.0" layoutY="330.0" mnemonicParsing="false" onAction="#otkaziRezervaciju" prefHeight="25.0" prefWidth="115.0" text="Otkaži rezervaciju" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Kategorije">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="kategorije" layoutX="254.0" layoutY="7.0" prefHeight="350.0" prefWidth="335.0">
+                          <columns>
+                            <TableColumn fx:id="naziv_kategorije_tablica" prefWidth="333.0" style="-fx-alignment: CENTER;" text="Naziv kategorije" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="26.0" layoutY="30.0" text="Dodaj / Uredi kategoriju:">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="naziv_kategorije" layoutX="30.0" layoutY="83.0" prefHeight="25.0" prefWidth="197.0" promptText="Naziv kategorije" />
+                        <Button layoutX="30.0" layoutY="137.0" mnemonicParsing="false" onAction="#dodajKategoriju" prefHeight="25.0" prefWidth="54.0" text="Dodaj" />
+                        <Button layoutX="102.0" layoutY="137.0" mnemonicParsing="false" onAction="#urediKategoriju" prefHeight="25.0" prefWidth="54.0" text="Uredi" />
+                        <Button layoutX="173.0" layoutY="137.0" mnemonicParsing="false" onAction="#obrisiKategoriju" prefWidth="54.0" text="Obriši" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Korisnici">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="korisnici" layoutX="8.0" layoutY="7.0" prefHeight="315.0" prefWidth="583.0">
+                          <columns>
+                            <TableColumn fx:id="ime_korisnici" prefWidth="140.0" text="Ime" />
+                            <TableColumn fx:id="prezime_korisnici" prefWidth="140.0" text="Prezime" />
+                              <TableColumn fx:id="e_mail_korisnici" prefWidth="185.0" text="E-mail" />
+                              <TableColumn fx:id="admin_korisnici" minWidth="0.0" prefWidth="116.0" text="Admin" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="361.0" layoutY="332.0" mnemonicParsing="false" onAction="#dodajAdmina" prefHeight="25.0" prefWidth="102.0" text="Dodaj admina" />
+                        <Button layoutX="477.0" layoutY="332.0" mnemonicParsing="false" onAction="#ukloniAdmina" prefHeight="25.0" prefWidth="113.0" text="Ukloni admina" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Button fx:id="odjavaButton" layoutX="525.0" layoutY="395.0" mnemonicParsing="false" onAction="#odjava" text="Odjavi se" />
+   </children>
+</AnchorPane>
